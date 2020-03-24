@@ -244,6 +244,9 @@ def get_model_queryset(admin_site, model, request, preserved_filters=None):
 def get_possible_language_codes():
     language_code = translation.get_language()
 
+    if language_code == 'zh-hans':
+        return ['zh_cn', 'zh']
+
     language_code = language_code.replace('_', '-').lower()
     language_codes = []
 
